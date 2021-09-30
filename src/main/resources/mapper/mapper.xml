@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.reactionGame.mapper.TestMapper">
+    <sql id="reactionTableColumns">
+        idx,
+        date,
+        name,
+        ratetime
+    </sql>
+    <select id="getUserList" resultType="com.example.reactionGame.dto.TestDto">
+        select *  FROM reactionGame.reactionTable
+    </select>
+    <select id="getUser" parameterType="Integer" resultType="com.example.reactionGame.dto.TestDto">
+        select *  FROM reactionGame.reactionTable where idx = #{idx}
+    </select>
+  <insert id="postUser" parameterType="com.example.reactionGame.dto.TestDto">
+      INSERT INTO reactionGame.reactionTable (
+
+      <include refid="reactionTableColumns"></include>
+                                              )
+        VALUES (
+      #{idx},
+      NOW(),
+      #{name},
+      #{ratetime}
+      )
+  </insert>
+    <delete id="deleteUser" parameterType="Integer">
+        delete from reactionGame.reactionTable where idx = #{idx}
+    </delete>
+    <update id="updateUser" parameterType="com.example.reactionGame.dto.TestDto">
+    UPDATE reactionGame.reactionTable SET
+        idx =  #{idx},
+        date =  NOW(),
+        name = #{name},
+        ratetime =  #{ratetime}
+    WHERE idx = #{idx}
+    </update>
+
+</mapper>
+
