@@ -14,3 +14,4 @@
 - [x] REST API -> 부분 입력
 - [x] REST API -> 부분 수정
 - [x] REST API -> 부분 삭제 (update X delete)
+- [ ] 갱신 기준 -> 하루 , 하루가 지나면 전체 삭제?
