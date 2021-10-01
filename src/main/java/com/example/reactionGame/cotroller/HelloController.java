@@ -7,12 +7,16 @@ import com.example.reactionGame.service.TestServiceImpl;
 import jdk.swing.interop.SwingInterOpUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.util.List;
 
 @RestController //rest api
 @RequiredArgsConstructor
+@Validated
 @Slf4j
 public class HelloController {
 
@@ -32,7 +36,7 @@ public class HelloController {
     }
 
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.GET)
-    public TestDto getUser(@PathVariable(name = "idx") Integer idx) {
+    public TestDto getUser(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
         log.error("idx : " + idx);
         TestDto testDto  = testService.getUser(idx);
         System.out.println(testDto.toString());
@@ -49,7 +53,6 @@ public class HelloController {
     }
 
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.PATCH)
-
     public TestDto updateUser(@RequestBody TestDto testDto) {
         Integer idx = testDto.getIdx();
         TestDto testDto1 = testService.getUser(idx);
