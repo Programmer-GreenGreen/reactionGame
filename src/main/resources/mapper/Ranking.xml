@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.reactionGame.mapper.RankingMapper">
+    <sql id="reactionTableColumns">
+        idx,
+        date,
+        name,
+        ratetime
+    </sql>
+    <select id="getDayRankingList" resultType="com.example.reactionGame.dto.TestDto">
+        select * from reactionGame.reactionTable where date_format(date, "%Y-%m-%d") = curdate() order by ratetime limit 10;
+    </select>
+
+    <select id="getTotalRankingList"  resultType="com.example.reactionGame.dto.TestDto">
+        select * from reactionGame.reactionTable order by ratetime  limit 10;
+    </select>
+
+</mapper>
+
