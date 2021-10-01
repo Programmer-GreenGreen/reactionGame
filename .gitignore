@@ -38,4 +38,4 @@ out/
 
 #My gitnore
 #!**/src/main/resources/application.properties
-resources/application.properties
+src/main/resources/application.properties
