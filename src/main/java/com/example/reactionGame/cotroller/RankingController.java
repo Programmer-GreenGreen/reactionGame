@@ -15,7 +15,7 @@ import java.util.List;
 public class RankingController {
     private final RankingService rankingService;
 
-    @GetMapping(value = "/user/rank")
+    @GetMapping(value = "/users/rank")
     public List<TestDto> getDayRankingList(){
 
         return rankingService.getToDayRanking();
