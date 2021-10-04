@@ -21,7 +21,7 @@ public class RankingController {
         return rankingService.getToDayRanking();
     }
 
-    @GetMapping(value = "/users/totalrank")
+    @GetMapping(value = "/users/total-rank")
     public  List<TestDto> getTotalRankingList(){
         return rankingService.getTotalDayRanking();
     }

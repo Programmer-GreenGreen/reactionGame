@@ -58,7 +58,7 @@ public class HelloController {
     }
 
 
-    @RequestMapping(value =  "/user/{idx}", method = RequestMethod.DELETE)
+    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable(name = "idx") Integer idx)  {
         testService.deleteUser(idx);
         String msg = "삭제되었습니다";
