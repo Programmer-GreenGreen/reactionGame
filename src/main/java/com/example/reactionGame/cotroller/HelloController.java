@@ -33,14 +33,14 @@ public class HelloController {
         return testService.getUserList();
     }
 
-    @RequestMapping(value =  "/user/{idx}", method = RequestMethod.GET)
+    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.GET)
     public TestDto getUser(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
 
         TestDto testDto  = testService.getUser(idx);
         return testDto;
     }
 
-    @RequestMapping(value =  "/user", method = RequestMethod.POST)
+    @RequestMapping(value =  "/users", method = RequestMethod.POST)
     public String postUser(@RequestBody TestDto testDto) {
         log.error(testDto.toString());
         testService.postUser(testDto);
@@ -48,7 +48,7 @@ public class HelloController {
         return msg;
     }
 
-    @RequestMapping(value =  "/user/{idx}", method = RequestMethod.PATCH)
+    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.PATCH)
     public TestDto updateUser(@RequestBody TestDto testDto) {
         Integer idx = testDto.getIdx();
         TestDto testDto1 = testService.getUser(idx);
