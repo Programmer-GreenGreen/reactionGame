@@ -13,15 +13,15 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class RankingController {
-
     private final RankingService rankingService;
 
-    @GetMapping(value = "/users/rank")
+    @GetMapping(value = "/user/rank")
     public List<TestDto> getDayRankingList(){
+
         return rankingService.getToDayRanking();
     }
 
-    @GetMapping(value = "/users/totalrank")
+    @GetMapping(value = "/users/total-rank")
     public  List<TestDto> getTotalRankingList(){
         return rankingService.getTotalDayRanking();
     }

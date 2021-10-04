@@ -21,14 +21,12 @@ import java.util.List;
 public class HelloController {
 
     private final TestService testService;
-    private final TestServiceImpl a;
 
     @RequestMapping(value = "/" , method = RequestMethod.GET)
     public Object test(){
         return "Hello World!";
+
     }
-
-
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<TestDto> getUserList(){
@@ -37,15 +35,13 @@ public class HelloController {
 
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.GET)
     public TestDto getUser(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
-        log.error("idx : " + idx);
+
         TestDto testDto  = testService.getUser(idx);
-        System.out.println(testDto.toString());
         return testDto;
     }
 
     @RequestMapping(value =  "/users", method = RequestMethod.POST)
     public String postUser(@RequestBody TestDto testDto) {
-
         log.error(testDto.toString());
         testService.postUser(testDto);
         String msg = "완료";
