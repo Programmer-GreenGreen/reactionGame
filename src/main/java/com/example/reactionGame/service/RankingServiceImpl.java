@@ -14,9 +14,11 @@ import java.util.List;
 public class RankingServiceImpl implements RankingService {
 
     private final RankingMapper mapper;
+    private final TestMapper testMapper;
+
     @Override
     public List<TestDto> getToDayRanking() {
-
+        testMapper.getUserList();
         return mapper.getDayRankingList();
     }
 

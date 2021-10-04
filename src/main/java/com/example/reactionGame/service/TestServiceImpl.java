@@ -4,6 +4,7 @@ import com.example.reactionGame.mapper.TestMapper;
 import com.example.reactionGame.dto.TestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,12 +14,10 @@ public class TestServiceImpl implements TestService{
 
     private final TestMapper testMapper;
 
-
     @Override
     public List<TestDto> getUserList() {
         return testMapper.getUserList();
     }
-
 
     @Override
     public TestDto getUser(Integer idx) {
