@@ -7,12 +7,20 @@
 | name        | varchar(20) | no duplicates |
 | ratetime    | int         | game result   |
 
-- [ ] 랭킹을 어떻게 구할 것인가?
-- [ ] 랭킹 칼럼을 만들 것인가?
-- [x] REST API -> 전체 조회
-- [x] REST API -> 부분 조회
-- [x] REST API -> 부분 입력
-- [x] REST API -> 부분 수정
-- [x] REST API -> 부분 삭제 (update X delete)
-- [ ] 갱신 기준 -> 하루 , 하루가 지나면 전체 삭제?
-- [ ] 닉네임 중복 불가
+
+###Users
+| :url:        | method |:desc:                       |
+|--------------|--------|-----------------------------|
+| users        |        |                             |
+| /users       | get    |모든 유저 정보를 가져온다      |
+| /users/{idx} | get    |idx를 가진 유저 정보를 가져온다|
+| /users       | post   |유저정보 입력을요청한다        |
+| /users/{idx} | patch  |idx를 가진 유저 정보를 수정한다|
+| /users/{idx} | delete |idx를 가진 유저 정보를 삭제한다|
+
+###Ranking
+|:url:              | method | :desc: |
+|-------------------|--------|--------|
+| users             |        |        |
+| /users/rank       | get    |하루 랭킹|
+| /users/total-rank | get    |모든 랭킹|
