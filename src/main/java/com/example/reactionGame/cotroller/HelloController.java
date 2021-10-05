@@ -55,9 +55,9 @@ public class HelloController {
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.PATCH)
     public TestDto updateUser(@RequestBody TestDto testDto) {
         Integer idx = testDto.getIdx();
-        TestDto testDto1 = testService.getUser(idx);
+        TestDto testDtoIdx = testService.getUser(idx);
         testService.updateUser(testDto);
-        return testDto1;
+        return testDtoIdx;
 
     }
 
