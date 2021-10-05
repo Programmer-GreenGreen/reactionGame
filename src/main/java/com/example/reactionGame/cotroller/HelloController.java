@@ -22,7 +22,7 @@ public class HelloController {
 
     private final TestService testService;
 
-    @CrossOrigin(origins="*")
+
     @RequestMapping(value = "/" , method = RequestMethod.GET)
     public Object test(){
         return "Hello World!";
