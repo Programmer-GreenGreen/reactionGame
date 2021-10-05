@@ -22,17 +22,19 @@ public class HelloController {
 
     private final TestService testService;
 
+
     @RequestMapping(value = "/" , method = RequestMethod.GET)
     public Object test(){
         return "Hello World!";
-
     }
 
+    @CrossOrigin(origins="*")
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<TestDto> getUserList(){
         return testService.getUserList();
     }
 
+    @CrossOrigin(origins="*")
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.GET)
     public TestDto getUser(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
 
@@ -40,6 +42,7 @@ public class HelloController {
         return testDto;
     }
 
+    @CrossOrigin(origins="*")
     @RequestMapping(value =  "/users", method = RequestMethod.POST)
     public String postUser(@RequestBody TestDto testDto) {
         log.error(testDto.toString());
@@ -48,6 +51,7 @@ public class HelloController {
         return msg;
     }
 
+    @CrossOrigin(origins="*")
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.PATCH)
     public TestDto updateUser(@RequestBody TestDto testDto) {
         Integer idx = testDto.getIdx();
@@ -57,7 +61,7 @@ public class HelloController {
 
     }
 
-
+    @CrossOrigin(origins="*")
     @RequestMapping(value =  "/users/{idx}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable(name = "idx") Integer idx)  {
         testService.deleteUser(idx);

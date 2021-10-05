@@ -8,7 +8,6 @@ public class ReactionGameApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReactionGameApplication.class, args);
-		System.out.println("");
 	}
 
 }
