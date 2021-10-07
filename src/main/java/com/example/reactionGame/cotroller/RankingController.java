@@ -16,14 +16,13 @@ import java.util.List;
 public class RankingController {
     private final RankingService rankingService;
 
-    @CrossOrigin(origins="*")
+
     @GetMapping(value = "/users/rank")
     public List<TestDto> getDayRankingList(){
 
         return rankingService.getToDayRanking();
     }
 
-    @CrossOrigin(origins="*")
     @GetMapping(value = "/users/total-rank")
     public  List<TestDto> getTotalRankingList(){
         return rankingService.getTotalDayRanking();
