@@ -60,6 +60,7 @@ public class ErrorResponse {
         private String value;
         private String reason;
 
+
         private FieldError(final String field, final String value, final String reason) {
             this.field = field;
             this.value = value;
