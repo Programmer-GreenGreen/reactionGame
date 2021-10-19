@@ -1,12 +1,12 @@
 package com.example.reactionGame.service;
 
-import com.example.reactionGame.dto.TestDto;
+import com.example.reactionGame.dto.MemberDto;
 
 import java.util.List;
 
 public interface RankingService {
 
-    List<TestDto> getToDayRanking();
-    List<TestDto> getTotalDayRanking();
+    List<MemberDto> getToDayRanking();
+    List<MemberDto> getTotalDayRanking();
 
 }

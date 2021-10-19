@@ -7,11 +7,11 @@
         name,
         ratetime
     </sql>
-    <select id="getDayRankingList" resultType="com.example.reactionGame.dto.TestDto">
+    <select id="getDayRankingList" resultType="com.example.reactionGame.dto.MemberDto">
         select * from reactionGame.reactionTable where date_format(date, "%Y-%m-%d") = curdate() order by ratetime limit 10;
     </select>
 
-    <select id="getTotalRankingList"  resultType="com.example.reactionGame.dto.TestDto">
+    <select id="getTotalRankingList"  resultType="com.example.reactionGame.dto.MemberDto">
         select * from reactionGame.reactionTable order by ratetime  limit 10;
     </select>
 
