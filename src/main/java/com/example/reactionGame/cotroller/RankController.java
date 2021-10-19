@@ -1,11 +1,8 @@
 package com.example.reactionGame.cotroller;
 
-import com.example.reactionGame.dto.TestDto;
+import com.example.reactionGame.dto.MemberDto;
 import com.example.reactionGame.service.RankingService;
-import com.example.reactionGame.service.TestService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,18 +10,19 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class RankingController {
+public class RankController {
     private final RankingService rankingService;
 
 
     @GetMapping(value = "/users/rank")
-    public List<TestDto> getDayRankingList(){
+    public List<MemberDto> getDayRankingList(){
 
         return rankingService.getToDayRanking();
     }
 
     @GetMapping(value = "/users/total-rank")
-    public  List<TestDto> getTotalRankingList(){
+    public  List<MemberDto> getTotalRankingList(){
         return rankingService.getTotalDayRanking();
     }
+
 }
