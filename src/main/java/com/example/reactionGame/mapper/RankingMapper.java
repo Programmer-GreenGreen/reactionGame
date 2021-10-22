@@ -7,8 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface RankingMapper {
-    List<MemberDto> getDayRankingList();
-    List<MemberDto> getTotalRankingList();
+    List<MemberDto> getWeekRankingList();
+    /*List<MemberDto> getTotalRankingList();*/
+    MemberDto getMemberPercent(Integer idx);
 
 
 }

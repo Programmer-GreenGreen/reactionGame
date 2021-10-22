@@ -20,6 +20,7 @@ public class MemberDto {
     private Date date;
     private String memberName;
     private Integer rateTime;
+    private Integer percent;
 
 
     /**

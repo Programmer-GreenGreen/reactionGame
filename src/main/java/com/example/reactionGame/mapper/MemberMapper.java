@@ -9,15 +9,15 @@ import java.util.Optional;
 @Mapper
 public interface MemberMapper {
 
-    List<MemberDto> getUserList();
+    List<MemberDto> getMemberList();
 
-    Optional<MemberDto> getUser(Integer id);
+    Optional<MemberDto> getMember(Integer id);
 
-    void postUser(MemberDto memberDto);
+    void postMember(MemberDto memberDto);
 
-    Optional<MemberDto> updateUser(MemberDto memberDto);
+    Optional<MemberDto> updateMember(MemberDto memberDto);
 
-    void  deleteUser(Integer id);
+    void  deleteMember(Integer id);
 
 
 }
