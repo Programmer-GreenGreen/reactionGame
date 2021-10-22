@@ -106,5 +106,6 @@ public class MemberController {
         memberService.deleteMember(idx);
         String msg = "삭제되었습니다";
         return msg;
+
     }
 }
