@@ -4,16 +4,16 @@
     <sql id="reactionTableColumns">
         idx,
         date,
-        name,
+        membername,
         ratetime
     </sql>
-    <select id="getUserList" resultType="com.example.reactionGame.dto.MemberDto">
+    <select id="getMemberList" resultType="com.example.reactionGame.dto.MemberDto">
         select *  FROM reactionGame.reactionTable
     </select>
-    <select id="getUser" parameterType="Integer" resultType="com.example.reactionGame.dto.MemberDto">
+    <select id="getMember" parameterType="Integer" resultType="com.example.reactionGame.dto.MemberDto">
         select *  FROM reactionGame.reactionTable where idx = #{idx}
     </select>
-  <insert id="postUser" parameterType="com.example.reactionGame.dto.MemberDto">
+  <insert id="postMember" parameterType="com.example.reactionGame.dto.MemberDto">
       INSERT INTO reactionGame.reactionTable (
 
       <include refid="reactionTableColumns"></include>
@@ -21,18 +21,18 @@
         VALUES (
       #{idx},
       NOW(),
-      #{name},
+      #{membername},
       #{ratetime}
       )
   </insert>
-    <delete id="deleteUser" parameterType="Integer">
+    <delete id="deleteMember" parameterType="Integer">
         delete from reactionGame.reactionTable where idx = #{idx}
     </delete>
-    <update id="updateUser" parameterType="com.example.reactionGame.dto.MemberDto">
+    <update id="updateMember" parameterType="com.example.reactionGame.dto.MemberDto">
     UPDATE reactionGame.reactionTable SET
         idx =  #{idx},
         date =  NOW(),
-        name = #{name},
+        memberName = #{membername},
         ratetime =  #{ratetime}
     WHERE idx = #{idx}
     </update>

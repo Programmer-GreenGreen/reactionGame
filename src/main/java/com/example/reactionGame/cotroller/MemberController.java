@@ -41,9 +41,9 @@ public class MemberController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<MemberDto> getUserList(){
-        return memberService.getUserList();
+    @RequestMapping(value = "/members", method = RequestMethod.GET)
+    public List<MemberDto> getMemberList(){
+        return memberService.getMemberList();
     }
 
     @Operation(summary = "idx 해당 유저를 조회합니다")
@@ -55,9 +55,9 @@ public class MemberController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
-    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.GET)
-    public ResponseEntity<MemberDto> getUser(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
-        MemberDto memberDto = memberService.getUser(idx);
+    @RequestMapping(value =  "/members/{idx}", method = RequestMethod.GET)
+    public ResponseEntity<MemberDto> getMember(@PathVariable(name = "idx") @Valid @Min(1) Integer idx) {
+        MemberDto memberDto = memberService.getMember(idx);
         return new ResponseEntity<>(memberDto, HttpStatus.OK);
     }
 
@@ -70,10 +70,10 @@ public class MemberController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
-    @RequestMapping(value =  "/users", method = RequestMethod.POST)
+    @RequestMapping(value =  "/members", method = RequestMethod.POST)
     public String postUser(@RequestBody MemberDto memberDto) {
         log.error(memberDto.toString());
-        memberService.postUser(memberDto);
+        memberService.postMember(memberDto);
         String msg = "완료";
         return msg;
     }
@@ -87,11 +87,11 @@ public class MemberController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
-    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.PATCH)
+    @RequestMapping(value =  "/members/{idx}", method = RequestMethod.PATCH)
     public MemberDto updateUser(@RequestBody MemberDto memberDto) {
         Integer idx = memberDto.getIdx();
-        MemberDto memberDtoIdx = memberService.getUser(idx);
-        memberService.updateUser(memberDto);
+        MemberDto memberDtoIdx = memberService.getMember(idx);
+        memberService.updateMember(memberDto);
         return memberDtoIdx;
 
     }
@@ -105,9 +105,9 @@ public class MemberController {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
-    @RequestMapping(value =  "/users/{idx}", method = RequestMethod.DELETE)
+    @RequestMapping(value =  "/members/{idx}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable(name = "idx") Integer idx)  {
-        memberService.deleteUser(idx);
+        memberService.deleteMember(idx);
         String msg = "삭제되었습니다";
         return msg;
     }

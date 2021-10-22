@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RankingService {
 
-    List<MemberDto> getToDayRanking();
-    List<MemberDto> getTotalDayRanking();
-
+    List<MemberDto> getWeekRankingList();
+    /*List<MemberDto> getTotalDayRanking();*/
+    MemberDto getMemberPercent(Integer idx);
 }

@@ -19,32 +19,32 @@ public class MemberServiceImpl implements MemberService {
     private final MemberMapper memberMapper;
 
     @Override
-    public List<MemberDto> getUserList() {
-        return memberMapper.getUserList();
+    public List<MemberDto> getMemberList() {
+        return memberMapper.getMemberList();
     }
 
     @Override
-    public MemberDto getUser(Integer idx) {
+    public MemberDto getMember(Integer idx) {
         log.error("memberError");
-        MemberDto memberDto = memberMapper.getUser(idx).orElseThrow(()-> new EntityNotFoundException(ErrorCode.ENTITY_NOT_FOUND));
+        MemberDto memberDto = memberMapper.getMember(idx).orElseThrow(()-> new EntityNotFoundException(ErrorCode.ENTITY_NOT_FOUND));
         return memberDto;
     }
 
     @Override
-    public void postUser(MemberDto memberDto) {
-        memberMapper.postUser(memberDto);
+    public void postMember(MemberDto memberDto) {
+        memberMapper.postMember(memberDto);
     }
 
     @Override
-    public void deleteUser(Integer idx) {
-        memberMapper.deleteUser(idx);
+    public void deleteMember(Integer idx) {
+        memberMapper.deleteMember(idx);
     }
 
     @Override
-    public MemberDto updateUser(MemberDto memberDto) {
-        /*MemberDto memberDto1 =  memberMapper.getUser(memberDto.getIdx());
+    public MemberDto updateMember(MemberDto memberDto) {
+        MemberDto memberDto1 =  memberMapper.getMember(memberDto.getIdx()).orElseThrow(()-> new EntityNotFoundException(ErrorCode.ENTITY_NOT_FOUND));
 
-        return memberMapper.updateUser(memberDto1);*/
-        return null;
+        return memberMapper.updateMember(memberDto1).orElseThrow(()-> new EntityNotFoundException(ErrorCode.ENTITY_NOT_FOUND));
+
     }
 }
