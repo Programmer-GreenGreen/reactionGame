@@ -27,10 +27,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @RequestMapping(value = "/" , method = RequestMethod.GET)
-    public Object test(){
-        return "Hello World!";
-    }
 
     @Operation(summary = "전체 유저를 조회합니다")
     @ApiResponses(value = {
@@ -71,7 +67,7 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members", method = RequestMethod.POST)
-    public String postUser(@RequestBody MemberDto memberDto) {
+    public String postMember(@RequestBody MemberDto memberDto) {
         log.error(memberDto.toString());
         memberService.postMember(memberDto);
         String msg = "완료";
@@ -88,7 +84,7 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members/{idx}", method = RequestMethod.PATCH)
-    public MemberDto updateUser(@RequestBody MemberDto memberDto) {
+    public MemberDto updateMember(@RequestBody MemberDto memberDto) {
         Integer idx = memberDto.getIdx();
         MemberDto memberDtoIdx = memberService.getMember(idx);
         memberService.updateMember(memberDto);
@@ -106,7 +102,7 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members/{idx}", method = RequestMethod.DELETE)
-    public String deleteUser(@PathVariable(name = "idx") Integer idx)  {
+    public String deleteMember(@PathVariable(name = "idx") Integer idx)  {
         memberService.deleteMember(idx);
         String msg = "삭제되었습니다";
         return msg;
