@@ -13,7 +13,7 @@ public interface MemberMapper {
 
     Optional<MemberDto> getMember(Integer id);
 
-    void postMember(MemberDto memberDto);
+    Integer postMember(MemberDto memberDto);
 
     Optional<MemberDto> updateMember(MemberDto memberDto);
 

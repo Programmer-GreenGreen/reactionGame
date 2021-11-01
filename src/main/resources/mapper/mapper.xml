@@ -4,8 +4,8 @@
     <sql id="reactionTableColumns">
         idx,
         date,
-        membername,
-        ratetime
+        memberName,
+        rateTime
     </sql>
     <select id="getMemberList" resultType="com.example.reactionGame.dto.MemberDto">
         select *  FROM reactionGame.reactionTable
@@ -13,16 +13,20 @@
     <select id="getMember" parameterType="Integer" resultType="com.example.reactionGame.dto.MemberDto">
         select *  FROM reactionGame.reactionTable where idx = #{idx}
     </select>
-  <insert id="postMember" parameterType="com.example.reactionGame.dto.MemberDto">
-      INSERT INTO reactionGame.reactionTable (
+  <insert id="postMember" parameterType="com.example.reactionGame.dto.MemberDto"  >
+      <selectKey keyProperty="idx" resultType="Integer" order="AFTER">
+      SELECT IFNULL(MAX(idx+1),1) FROM reactionGame.reactionTable
+      </selectKey>
+
+        INSERT INTO reactionGame.reactionTable (
 
       <include refid="reactionTableColumns"></include>
                                               )
         VALUES (
       #{idx},
       NOW(),
-      #{membername},
-      #{ratetime}
+      #{memberName},
+      #{rateTime}
       )
   </insert>
     <delete id="deleteMember" parameterType="Integer">
@@ -33,7 +37,7 @@
         idx =  #{idx},
         date =  NOW(),
         memberName = #{membername},
-        ratetime =  #{ratetime}
+        rateTime =  #{rateTime}
     WHERE idx = #{idx}
     </update>
 
