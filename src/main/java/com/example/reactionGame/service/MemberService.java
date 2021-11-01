@@ -6,6 +6,7 @@ import java.util.List;
 
 /***
  * MemberService
+ * @version 1.0
  * @author Lee
  */
 public interface MemberService {
