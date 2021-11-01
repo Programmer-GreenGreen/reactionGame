@@ -6,6 +6,7 @@ import java.util.List;
 
 /***
  * MemberService
+ * @author Lee
  */
 public interface MemberService {
     public List<MemberDto> getMemberList();
