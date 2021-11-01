@@ -4,6 +4,9 @@ import com.example.reactionGame.dto.MemberDto;
 
 import java.util.List;
 
+/***
+ * MemberService
+ */
 public interface MemberService {
     public List<MemberDto> getMemberList();
     public MemberDto getMember(Integer idx);
