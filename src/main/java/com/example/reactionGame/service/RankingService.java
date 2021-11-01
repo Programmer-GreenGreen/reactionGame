@@ -5,6 +5,7 @@ import com.example.reactionGame.dto.MemberDto;
 import java.util.List;
 /***
  * RankingService
+ * @author Lee
  */
 public interface RankingService {
 
