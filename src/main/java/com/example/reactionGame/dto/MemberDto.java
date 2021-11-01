@@ -24,7 +24,7 @@ public class MemberDto {
 
 
     /**
-     *
+     * java docs
      * @author green
      * @version 1.0
      * @see MemberDto

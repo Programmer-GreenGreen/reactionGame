@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -26,11 +27,6 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
-
-    @RequestMapping(value = "/" , method = RequestMethod.GET)
-    public Object test(){
-        return "Hello World!";
-    }
 
     @Operation(summary = "전체 유저를 조회합니다")
     @ApiResponses(value = {
@@ -71,11 +67,11 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members", method = RequestMethod.POST)
-    public String postUser(@RequestBody MemberDto memberDto) {
-        log.error(memberDto.toString());
-        memberService.postMember(memberDto);
-        String msg = "완료";
-        return msg;
+    public ResponseEntity postMember(@RequestBody MemberDto memberDto) {
+
+        Integer idx =  memberService.postMember(memberDto);
+
+      return ResponseEntity.status(HttpStatus.CREATED).header(HttpHeaders.LOCATION, "http://localhost:9999/members/"+String.valueOf(idx)).build();
     }
 
     @Operation(summary ="유저 정보를 수정합니다")
@@ -88,7 +84,7 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members/{idx}", method = RequestMethod.PATCH)
-    public MemberDto updateUser(@RequestBody MemberDto memberDto) {
+    public MemberDto updateMember(@RequestBody MemberDto memberDto) {
         Integer idx = memberDto.getIdx();
         MemberDto memberDtoIdx = memberService.getMember(idx);
         memberService.updateMember(memberDto);
@@ -106,9 +102,14 @@ public class MemberController {
             @ApiResponse(responseCode = "404", description = "해당 유저가 존재하지 않습니다",
                     content = @Content) })
     @RequestMapping(value =  "/members/{idx}", method = RequestMethod.DELETE)
-    public String deleteUser(@PathVariable(name = "idx") Integer idx)  {
+    public String deleteMember(@PathVariable(name = "idx") Integer idx)  {
         memberService.deleteMember(idx);
         String msg = "삭제되었습니다";
         return msg;
+
+        /**
+         * delete 1:n n:n 관계 일시 삭제한 데이터의 상위 데이터로 리턴을 해주거나
+         * 상위 데이터가 없는 경우 리턴은 선택
+         */
     }
 }
