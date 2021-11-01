@@ -3,7 +3,9 @@ package com.example.reactionGame.service;
 import com.example.reactionGame.dto.MemberDto;
 
 import java.util.List;
-
+/***
+ * RankingService
+ */
 public interface RankingService {
 
     List<MemberDto> getWeekRankingList();
