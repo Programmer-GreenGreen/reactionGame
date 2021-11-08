@@ -1,0 +1,11 @@
+aws:
+  secretsmanager:
+    name: reactionGame
+cloud:
+  aws:
+    region: ap-northeast-2
+    stack:
+      auto: false
+
+
+

@@ -1,16 +1,12 @@
-aws:
-  secretsmanager:
-    name: reactionGame
-cloud:
-  aws:
-    region:
-      static: ap-northeast-2
-      auto: false
-    #credentials:
-      #access-key: AKIAXIXALK7BIP4ETI44
-      #secret-key: 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
-    stack:
-      auto: false
+#aws:
+  #secretsmanager:
+    #name: reactionGame
+
+#cloud:
+  #aws:
+    #region: ap-northeast-2
+    #stack:
+      #auto: false
 
 
 
