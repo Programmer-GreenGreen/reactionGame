@@ -1,12 +1,13 @@
-#aws:
-  #secretsmanager:
-    #name: reactionGame
+aws:
+  secretsmanager:
+    name: reactionGame
 
-#cloud:
-  #aws:
-    #region: ap-northeast-2
-    #stack:
-      #auto: false
-
-
-
+cloud:
+  aws:
+    region: ap-northeast-2
+    stack:
+      auto: false
+spring:
+  config:
+    import:
+      aws-secretsmanager : reactionGame
