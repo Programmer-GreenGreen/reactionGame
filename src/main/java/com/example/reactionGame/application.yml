@@ -1,0 +1,7 @@
+#aws:
+#  secretsmanager:
+#    name: reactionGame
+#cloud:
+#  aws:
+#    region:
+#      static: ap-northeast-2

@@ -1,9 +1,10 @@
 package com.example.reactionGame;
 
-import com.amazonaws.services.secretsmanager.AWSSecretsManager;
+//import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.example.reactionGame.cotroller.MemberController;
 import com.example.reactionGame.service.MemberService;
 import com.example.reactionGame.service.MemberServiceImpl;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,7 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class ReactionGameApplication {
-	@Value("${reactionGame.secret}")
+	@Value("${reactionGame.test}")
 	private String test;
 
 	@PostConstruct
