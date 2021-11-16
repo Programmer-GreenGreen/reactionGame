@@ -29,8 +29,8 @@ jobs:
         aws-secret-access-key: rsHa5orTdRE2iQbFB5m961cNafBVKP3QKpXk0YOG
         aws-region: ap-northeast-2
         secrets: |
-          my_secret_1
-          app1/dev/*
+          spring.datasource.url
+          /secret/reactionGame/*
         parse-json: true
     - name: Check if env variable is set after fetching secrets
-      run: if [ -z ${MY_SECRET_1+x} ]; then echo "MY_SECRET_1 is unset"; else echo "MY_SECRET_1 is set to '$MY_SECRET_1'"; fi
+      run: if [ -z ${spring.datasource.url} ]; then echo "MY_SECRET_1 is unset"; else echo "spring.datasource.url is set to spring.datasource.url"; fi
