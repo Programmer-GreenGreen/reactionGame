@@ -29,7 +29,6 @@ jobs:
         aws-secret-access-key: rsHa5orTdRE2iQbFB5m961cNafBVKP3QKpXk0YOG
         aws-region: ap-northeast-2
         secrets: |
-          spring.datasource.url
           /secret/reactionGame/*
         parse-json: true
     - name: Check if env variable is set after fetching secrets
