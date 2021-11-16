@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.reactionGame.mapper.MemberMapper">
+    <sql id="reactionTableColumns">
+        idx,
+        date,
+        memberName,
+        rateTime
+    </sql>
+    <select id="getMemberList" resultType="com.example.reactionGame.dto.MemberDto">
+        select *  FROM reactionGame.reactionTable
+    </select>
+    <select id="getMember" parameterType="Integer" resultType="com.example.reactionGame.dto.MemberDto">
+        select *  FROM reactionGame.reactionTable where idx = #{idx}
+    </select>
+  <insert id="postMember" parameterType="com.example.reactionGame.dto.MemberDto"  >
+      <selectKey keyProperty="idx" resultType="Integer" order="AFTER">
+      SELECT IFNULL(MAX(idx+1),1) FROM reactionGame.reactionTable
+      </selectKey>
+
+        INSERT INTO reactionGame.reactionTable (
+
+      <include refid="reactionTableColumns"></include>
+                                              )
+        VALUES (
+      #{idx},
+      NOW(),
+      #{memberName},
+      #{rateTime}
+      )
+  </insert>
+    <delete id="deleteMember" parameterType="Integer">
+        delete from reactionGame.reactionTable where idx = #{idx}
+    </delete>
+    <update id="updateMember" parameterType="com.example.reactionGame.dto.MemberDto">
+    UPDATE reactionGame.reactionTable SET
+        idx =  #{idx},
+        date =  NOW(),
+        memberName = #{membername},
+        rateTime =  #{rateTime}
+    WHERE idx = #{idx}
+    </update>
+
+</mapper>
+

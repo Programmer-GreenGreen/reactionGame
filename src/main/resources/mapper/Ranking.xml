@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.reactionGame.mapper.RankingMapper">
+    <sql id="reactionTableColumns">
+        idx,
+        date,
+        membername,
+        ratetime
+    </sql>
+    <!--<select id="getDayRankingList" resultType="com.example.reactionGame.dto.MemberDto">
+        select * from reactionGame.reactionTable where date_format(date, "%Y-%m-%d") = curdate() order by ratetime limit 10;
+    </select>
+-->
+    <select id="getWeekRankingList"  resultType="com.example.reactionGame.dto.MemberDto">
+        SELECT * ,
+               DENSE_RANK() OVER (ORDER BY ratetime ASC) AS ranking
+        FROM reactionGame.reactionTable
+        WHERE NOW()
+                  BETWEEN (select DATE_FORMAT(DATE_SUB(date, INTERVAL (DAYOFWEEK(date)-1) DAY), '%Y-%m-%d'))
+                  AND
+                      (SELECT(DATE_FORMAT(DATE_SUB(date, INTERVAL (DAYOFWEEK(date)-7) DAY), '%Y/%m/%d')))
+        order by ratetime limit 10;
+    </select>
+
+    <!--<select id="getTotalRankingList"  resultType="com.example.reactionGame.dto.MemberDto">
+        select * from reactionGame.reactionTable order by ratetime  limit 10;
+    </select>
+-->
+    <select id="getMemberPercent"  resultType="com.example.reactionGame.dto.MemberDto">
+        SELECT *, ps.percent
+        FROM
+            (
+                SELECT * , round( percent_rank() over (order by ratetime ASC)*100) AS percent
+                from reactionGame.reactionTable
+            ) as ps
+        where idx = #{idx}
+    </select>
+
+
+</mapper>
+

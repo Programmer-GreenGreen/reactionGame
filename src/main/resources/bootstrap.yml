@@ -1,0 +1,4 @@
+aws:
+  secretsmanager:
+    name: reactionGame
+    region: ap-northeast-2
