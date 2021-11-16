@@ -32,4 +32,4 @@ jobs:
           /secret/reactionGame
         parse-json: true
     - name: Check if env variable is set after fetching secrets
-      run:  echo " arameter1={SPRING_DATASOURCE_URL}"
+      run:  echo $SPRING_DATASOURCE_URL
