@@ -25,9 +25,9 @@ jobs:
     - name: Read secrets from AWS Secrets Manager into environment variables
       uses: abhilash1in/aws-secrets-manager-action@v1.1.0
       with:
-        aws-access-key-id: ${{AKIAXIXALK7BIP4ETI44}}
-        aws-secret-access-key: ${{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}}
-        aws-region: ${{ap-northeast-2}}
+        aws-access-key-id: AKIAXIXALK7BIP4ETI44
+        aws-secret-access-key: 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
+        aws-region: ap-northeast-2
         secrets: |
           my_secret_1
           app1/dev/*
