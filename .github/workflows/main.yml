@@ -32,4 +32,4 @@ jobs:
           /secret/reactionGame/*
         parse-json: true
     - name: Check if env variable is set after fetching secrets
-      run: if [ -z ${spring.datasource.url} ]; then echo "MY_SECRET_1 is unset"; else echo "spring.datasource.url is set to spring.datasource.url"; fi
+      run:  echo " arameter1={spring.datasource.i-url}}"
