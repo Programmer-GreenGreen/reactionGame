@@ -16,6 +16,7 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class ReactionGameApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(ReactionGameApplication.class, args);
 	}
