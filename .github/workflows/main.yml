@@ -49,12 +49,12 @@ jobs:
           /secret/reactionGame
         parse-json: true
     - name: Upload to S3 #3
-      run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://reactionGame/$GITHUB_SHA.zip
+      run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://reactiongame/$GITHUB_SHA.zip
       
     - name: Code Deploy #4
       run: aws deploy create-deployment --application-name reactionGame
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name Green
-        --s3-location bucket=reactionGame,bundleType=zip,key=$GITHUB_SHA.zip
+        --s3-location bucket=reactiongame,bundleType=zip,key=$GITHUB_SHA.zip
 
 
