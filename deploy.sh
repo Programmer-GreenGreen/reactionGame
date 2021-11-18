@@ -1,4 +1,4 @@
-REPOSITORY=/home/ec2-user/app
+REPOSITORY=/home/ec2-user/reactionGame
 cd $REPOSITORY
 
 APP_NAME=reactionGame #1
