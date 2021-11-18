@@ -35,7 +35,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Make zip file #1
+    - name: Make zip file 
       run: zip -qq -r ./$GITHUB_SHA.zip .
       shell: bash
       
@@ -48,3 +48,13 @@ jobs:
         secrets: |
           /secret/reactionGame
         parse-json: true
+    - name: Upload to S3 #3
+      run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://reactionGame/$GITHUB_SHA.zip
+      
+    - name: Code Deploy #4
+      run: aws deploy create-deployment --application-name reactionGame
+        --deployment-config-name CodeDeployDefault.OneAtATime
+        --deployment-group-name Green
+        --s3-location bucket=reactionGame,bundleType=zip,key=$GITHUB_SHA.zip
+
+
