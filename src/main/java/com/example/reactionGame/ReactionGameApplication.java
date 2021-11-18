@@ -16,6 +16,13 @@ import javax.annotation.PostConstruct;
 @SpringBootApplication
 public class ReactionGameApplication {
 
+	@Value("${spring.datasource.username}")
+	private String test;
+
+	@PostConstruct
+	public void test() {
+		System.out.println(">>> " + test);
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(ReactionGameApplication.class, args);
 	}
