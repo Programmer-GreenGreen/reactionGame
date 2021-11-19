@@ -48,6 +48,7 @@ jobs:
         secrets: |
           /secret/reactionGame
         parse-json: true
+        
     - name: Upload to S3 #3
       run: |
           aws s3 cp \
