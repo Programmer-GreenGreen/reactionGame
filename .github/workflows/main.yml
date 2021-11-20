@@ -45,9 +45,6 @@ jobs:
           /secret/reactionGame
         parse-json: true
         
-    - name: Upload to S3 #3
-      run: aws s3 cp --region ap-northeast-2 --acl private ./$GITHUB_SHA.zip s3://reactiongame/$GITHUB_SHA.zip
-        
       
     - name: Code Deploy #4
       run: aws deploy create-deployment --application-name reactionGame
