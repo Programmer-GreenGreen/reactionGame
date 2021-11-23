@@ -49,6 +49,5 @@ jobs:
       run: aws deploy create-deployment --application-name reactionGame
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name Green
-        --s3-location bucket=reactionGame,bundleType=zip,key=$GITHUB_SHA.zip
-
+ 
 
