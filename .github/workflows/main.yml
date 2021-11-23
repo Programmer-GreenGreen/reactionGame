@@ -33,7 +33,6 @@ jobs:
       
     - name: Make zip file 
       run: zip -qq -r ./$GITHUB_SHA.zip .
-      shell: bash
       
     - name: Read secrets from AWS Secrets Manager into environment variables
       uses: abhilash1in/aws-secrets-manager-action@v1.1.0
