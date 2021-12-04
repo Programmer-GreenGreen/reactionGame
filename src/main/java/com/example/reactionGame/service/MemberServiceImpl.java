@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public MemberDto getMember(Integer idx) {
-        log.error("memberError");
+        log.info("getMember");
         MemberDto memberDto = memberMapper.getMember(idx).orElseThrow(()->
                 new EntityNotFoundException(ErrorCode.ENTITY_NOT_FOUND));
         return memberDto;
