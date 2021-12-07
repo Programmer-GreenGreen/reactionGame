@@ -24,3 +24,4 @@
 | users             |        |        |
 | /users/rank       | get    |하루 랭킹|
 | /users/total-rank | get    |모든 랭킹|
+^.^
