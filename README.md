@@ -21,6 +21,13 @@
 ### Ranking
 |url                | method | desc   |
 |-------------------|--------|--------|
+
+| users             |        |        |
+| /users/rank       | get    |하루 랭킹|
+| /users/total-rank | get    |모든 랭킹|
+^.^
+=======
 | members           |        |        |
 | /members/rank     | get    |주간 랭킹|
 | /members/{idx}/percent | get    |idx 해당 유저 상위 |
+
