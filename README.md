@@ -24,3 +24,4 @@
 | members           |        |        |
 | /members/rank     | get    |주간 랭킹|
 | /members/{idx}/percent | get    |idx 해당 유저 상위 |
+^
