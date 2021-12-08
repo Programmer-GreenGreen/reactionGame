@@ -31,9 +31,9 @@ public class MemberDto {
      * */
     @Getter
     @Setter
-    public static class Response{
+    public static class UpdateDto{
         private String memberName;
-        private Integer rateTime;
+        private Integer idx;
 
 
     }
