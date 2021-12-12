@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class OpenApiConfig {
 
     /**
-     * swagger api 설명
+     * swagger api 설명.
      */
     @Bean
     public OpenAPI openAPI() {
@@ -33,7 +33,7 @@ public class OpenApiConfig {
          * @addServersItem : 서버 스키마 설정 가능한 곳
          */
         return new OpenAPI()
-                .addServersItem(new Server().url("https://developer-green-final.click"))
+                .addServersItem(new Server().url("https://developer-green-final.click:9000"))
                 .info(info);
     }
 
