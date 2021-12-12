@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class OpenApiConfig {
 
     /**
-     * swagger api 설명
+     * swagger api 설명.
      */
     @Bean
     public OpenAPI openAPI() {
