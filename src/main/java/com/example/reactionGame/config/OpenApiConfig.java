@@ -33,7 +33,7 @@ public class OpenApiConfig {
          * @addServersItem : 서버 스키마 설정 가능한 곳
          */
         return new OpenAPI()
-                .addServersItem(new Server().url("https://developer-green-final.click:9000"))
+                .addServersItem(new Server().url("http://developer-green-final.click:9000"))
                 .info(info);
     }
 
