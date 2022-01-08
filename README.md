@@ -8,26 +8,4 @@
 | ratetime    | int         | game result   |
 
 
-### Users
-|  url         | method | desc                         |
-|--------------|--------|------------------------------|
-| members      |        |                              |
-| /memberes    | get    |모든 유저 정보를 가져온다      |
-| /members/{idx}| get   |idx를 가진 유저 정보를 가져온다|
-| /members     | post   |유저정보 입력을요청한다        |
-| /members/{idx}  patch  |idx를 가진 유저 정보를 수정한다|
-| /members/{idx} | delete |idx를 가진 유저 정보를 삭제한다|
-
-### Ranking
-|url                | method | desc   |
-|-------------------|--------|--------|
-
-| users             |        |        |
-| /users/rank       | get    |하루 랭킹|
-| /users/total-rank | get    |모든 랭킹|
-^.^
-=======
-| members           |        |        |
-| /members/rank     | get    |주간 랭킹|
-| /members/{idx}/percent | get    |idx 해당 유저 상위 |
-
+![reactionGame.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/828bd44d-c816-4d60-a093-84e7a510a0ad/reactionGame.png)
